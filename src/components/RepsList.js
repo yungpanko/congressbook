@@ -5,7 +5,7 @@ const RepsList = ({ members }) => {
   let displayList = ''
   if (members) {
     displayList = members.map(member => (
-      <Congressperson member={member} />
+      <Congressperson member={member} key={member.id}/>
     ))
   }
   return (

@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import RepsList from '../components/RepsList'
 import SenatorsList from '../components/SenatorsList'
+import AddressSearch from '../components/AddressSearch'
+import config from '.././config'
 
 const myHeaders = {
-  'X-API-Key': 'pyPTfYB2tJoek7yZUGs98BifesXGpfeRoRiczpAV'
+  'X-API-Key': config.PP_KEY
 }
 
 const myInit = {
@@ -43,6 +45,19 @@ class FindYourReps extends Component {
       .catch(error => console.log(error)) // investigate 'throw' - how to display error
   }
 
+  // handleSearch = (searchTerm) => {
+  //   fetch('https://www.googleapis.com/civicinfo/v2/representatives' +
+  //       '?address=' + address +
+  //       '&levels=country' +
+  //       '&key=' + GOOGLE_API_KEY, myInit)
+  //     .then(resp => resp.json())
+  //     .then(resp => this.setState({
+  //       senate: resp.results[0].members
+  //     }))
+  //     .catch(error => console.log(error)) // investigate 'throw' - how to display error
+  //
+  // }
+
   componentDidMount = () => {
     this.getHouseReps()
     this.getSenators()
@@ -55,6 +70,7 @@ class FindYourReps extends Component {
     return (
       <div>
         <h1>FindYourReps</h1>
+        <AddressSearch handleSearch={this.handleSearch}/>
         <RepsList members={this.state.house}/>
         <SenatorsList members={this.state.senate}/>
     </div>
