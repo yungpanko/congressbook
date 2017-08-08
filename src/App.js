@@ -1,13 +1,34 @@
 import React, { Component } from 'react';
-import FindYourReps from './containers/FindYourReps'
+import FindMyReps from './containers/FindMyReps'
+import NavBar from './containers/NavBar.js'
+import Home from './containers/Home.js'
+import House from './containers/House.js'
+import Senate from './containers/Senate.js'
+import Bills from './containers/Bills.js'
+import Header from './containers/Header'
+
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 
 class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <FindYourReps />
-      </div>
+      <Router>
+        <div>
+          <Header />
+          <NavBar />
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/findmyreps" component={FindMyReps} />
+          <Route exact path="/house" component={House} />
+          <Route exact path="/senate" component={Senate} />
+          <Route exact path="/bills" component={Bills} />
+        </div>
+      </Router>
     );
   }
 }

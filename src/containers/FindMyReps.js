@@ -19,7 +19,7 @@ const myInit = {
 
 
 
-class FindYourReps extends Component {
+class FindMyReps extends Component {
   constructor() {
     super()
     this.state = ({
@@ -119,7 +119,7 @@ class FindYourReps extends Component {
       console.log("congress is in session")
       return (
         <div>
-          <h1>FindYourReps</h1>
+          <h1>FindMyReps</h1>
           <AddressSearch handleSearch={this.handleSearch}/>
           <span>
             <GoogleMap url={this.state.map}/>
@@ -132,7 +132,7 @@ class FindYourReps extends Component {
     } else {
       return (
         <div>
-          <h1>FindYourReps</h1>
+          <h1>FindMyReps</h1>
           <AddressSearch handleSearch={this.handleSearch}/>
         </div>
       )
@@ -140,4 +140,4 @@ class FindYourReps extends Component {
   }
 }
 
-export default FindYourReps
+export default FindMyReps
