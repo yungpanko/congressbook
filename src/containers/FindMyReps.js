@@ -35,7 +35,7 @@ class FindMyReps extends Component {
     fetch('https://api.propublica.org/congress/v1/115/house/members.json', myInit)
       .then(resp => resp.json())
       .then(resp => this.setState({
-        house: resp.results[0].members
+        house: resp.results[0].members.filter(member => member.in_office === true)
       }))
       .catch(error => console.log(error)) // investigate 'throw' - how to display error
 
@@ -54,7 +54,7 @@ class FindMyReps extends Component {
     fetch('https://api.propublica.org/congress/v1/115/senate/members.json', myInit)
       .then(resp => resp.json())
       .then(resp => this.setState({
-        senate: resp.results[0].members
+        senate: resp.results[0].members.filter(member => member.in_office === true)
       }))
       .catch(error => console.log(error)) // investigate 'throw' - how to display error
   }
@@ -125,8 +125,8 @@ class FindMyReps extends Component {
             <GoogleMap url={this.state.map}/>
             <LinkToDistrictMap state={this.state.districtState} district={this.state.districtCode}/>
           </span>
-          <RepsList members={this.state.house}/>
-          <SenatorsList members={this.state.senate}/>
+          <RepsList members={this.state.house} districtState={this.state.districtState}/>
+          <SenatorsList members={this.state.senate} districtState={this.state.districtState}/>
         </div>
       )
     } else {

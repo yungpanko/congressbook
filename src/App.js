@@ -6,6 +6,7 @@ import House from './containers/House.js'
 import Senate from './containers/Senate.js'
 import Bills from './containers/Bills.js'
 import Header from './containers/Header'
+import { Container } from 'semantic-ui-react'
 
 
 import {
@@ -19,6 +20,7 @@ class App extends Component {
   render() {
     return (
       <Router>
+        <Container>
         <div>
           <Header />
           <NavBar />
@@ -28,6 +30,7 @@ class App extends Component {
           <Route exact path="/senate" component={Senate} />
           <Route exact path="/bills" component={Bills} />
         </div>
+      </Container>
       </Router>
     );
   }
