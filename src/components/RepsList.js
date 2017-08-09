@@ -14,7 +14,6 @@ const RepsList = ({ members, districtState }) => {
   return (
     <div>
       <h3>U.S. House of Represenatives</h3>
-      <hr></hr>
         <Card.Group itemsPerRow={4}>
           {displayList}
         </Card.Group>

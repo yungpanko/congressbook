@@ -1,13 +1,25 @@
 import React from 'react'
+import { Header, Image, Container, Menu } from 'semantic-ui-react'
+import { Link } from 'react-router-dom';
 
-const Header = (props) => {
+const PageHeader = (props) => {
   return (
-    <div>
-      <header>
-        <h1>The 115th United States Congress</h1>
-      </header>
-    </div>
+    <Container textAlign='center'>
+      <Menu text compact>
+        <Menu.Item>
+          <Link to='/house' exact><Image src='/house-logo.png' size='small' inline/></Link></Menu.Item>
+        <Menu.Item>
+          <Link to='/' exact>
+            <Header as='h1' textAlign='center'>The 115th United States Congress</Header>
+          </Link>
+        </Menu.Item>
+        <Menu.Item>
+          <Link to='/senate' exact><Image src='/senate-logo.png' size='small' inline/>
+        </Link>
+      </Menu.Item>
+    </Menu>
+    </Container>
   )
 }
 
-export default Header
+export default PageHeader

@@ -5,6 +5,7 @@ import AddressSearch from '../components/AddressSearch'
 import LinkToDistrictMap from '../components/LinkToDistrictMap'
 import GoogleMap from '../components/GoogleMap'
 import config from '.././config'
+import { Container, Grid } from 'semantic-ui-react'
 
 const myHeaders = {
   'X-API-Key': config.PP_KEY
@@ -118,23 +119,40 @@ class FindMyReps extends Component {
     if (this.state.senate && this.state.house) { // move logic out to own function
       console.log("congress is in session")
       return (
-        <div>
-          <h1>FindMyReps</h1>
-          <AddressSearch handleSearch={this.handleSearch}/>
-          <span>
-            <GoogleMap url={this.state.map}/>
-            <LinkToDistrictMap state={this.state.districtState} district={this.state.districtCode}/>
-          </span>
-          <RepsList members={this.state.house} districtState={this.state.districtState}/>
-          <SenatorsList members={this.state.senate} districtState={this.state.districtState}/>
-        </div>
+        <Container>
+          <Grid divided='vertically'>
+            <Grid.Row columns={1}>
+              <Grid.Column>
+                <AddressSearch handleSearch={this.handleSearch}/>
+              </Grid.Column>
+            </Grid.Row>
+          <Grid.Row columns={2}>
+            <Grid.Column>
+              <GoogleMap url={this.state.map}/>
+              <LinkToDistrictMap state={this.state.districtState} district={this.state.districtCode}/>
+            </Grid.Column>
+            <Grid.Column>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row columns={1}>
+            <Grid.Column>
+            <RepsList members={this.state.house} districtState={this.state.districtState}/>
+          </Grid.Column>
+          </Grid.Row>
+          <Grid.Row columns={1}>
+            <Grid.Column>
+              <SenatorsList members={this.state.senate} districtState={this.state.districtState}/>
+            </Grid.Column>
+          </Grid.Row>
+          </Grid>
+        </Container>
       )
     } else {
       return (
-        <div>
-          <h1>FindMyReps</h1>
+        <Container>
           <AddressSearch handleSearch={this.handleSearch}/>
-        </div>
+        </Container>
       )
     }
   }

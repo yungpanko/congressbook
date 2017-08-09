@@ -1,18 +1,21 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const NavBar = () => {
-  return (
-    <div className='navbar'>
-      <ul>
-        <li><NavLink to='/' exact>Home</NavLink></li>
-        <li><NavLink to='/findmyreps' exact>Find My Reps</NavLink></li>
-        <li><NavLink to='/house' exact>House</NavLink></li>
-        <li><NavLink to='/senate' exact>Senate</NavLink></li>
-        <li><NavLink to='/bills' exact>Bills</NavLink></li>
-      </ul>
-    </div>
-  );
-};
+
+class NavBar extends React.Component {
+  render() {
+
+    return (
+      <div className="ui five item menu">
+        <NavLink to='/' exact className='item'>Home</NavLink>
+        <NavLink to='/findmyreps' exact className='item'>Find My Represenatives</NavLink>
+        <NavLink to='/house' exact className='item'>House</NavLink>
+        <NavLink to='/senate' exact className='item'>Senate</NavLink>
+        <NavLink to='/bills' exact className='item'>Bills</NavLink>
+      </div>
+    )
+  }
+}
+
 
 export default NavBar;

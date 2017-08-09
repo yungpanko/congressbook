@@ -12,7 +12,6 @@ const SenatorsList = ({ members, districtState }) => {
   return (
     <div>
         <h3>U.S. Senate</h3>
-        <hr></hr>
         <Card.Group itemsPerRow={4}>
           {displayList}
         </Card.Group>

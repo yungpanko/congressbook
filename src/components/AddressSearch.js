@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Input, Container, Form } from 'semantic-ui-react'
 
 class AddressSearch extends Component {
   constructor() {
@@ -21,15 +22,18 @@ class AddressSearch extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text"
+      <Container textAlign="center">
+        <br/>
+        <br/>
+        <Form size='huge'
+          onSubmit={this.handleSubmit}>
+          <Input icon="search" type="text"
+            placeholder="Enter your address"
             value={this.state.text}
             onChange={this.handleChange}
           />
-          <input type="submit" />
-        </form>
-      </div>
+        </Form>
+      </Container>
     )
   }
 

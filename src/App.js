@@ -7,12 +7,12 @@ import Senate from './containers/Senate.js'
 import Bills from './containers/Bills.js'
 import Header from './containers/Header'
 import { Container } from 'semantic-ui-react'
-
+import CongresspersonShow from './containers/CongresspersonShow'
 
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Switch
 } from 'react-router-dom'
 
 class App extends Component {
@@ -21,16 +21,18 @@ class App extends Component {
     return (
       <Router>
         <Container>
-        <div>
           <Header />
           <NavBar />
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/findmyreps" component={FindMyReps} />
-          <Route exact path="/house" component={House} />
-          <Route exact path="/senate" component={Senate} />
-          <Route exact path="/bills" component={Bills} />
-        </div>
-      </Container>
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/findmyreps" component={FindMyReps} />
+            <Route exact path="/house" component={House} />
+            <Route exact path="/senate" component={Senate} />
+            <Route exact path="/bills" component={Bills} />
+          <Switch>
+            <Route path ="/house/:id" render={({match})=> (<CongresspersonShow member={match.params.id}/>) }/>
+            <Route path ="/senate/:id" render={({match})=> (<CongresspersonShow member={match.params.id}/>) }/>
+          </Switch>
+        </Container>
       </Router>
     );
   }
