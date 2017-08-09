@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card } from 'semantic-ui-react'
+import { Card, Image } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom'
 
 const Congressperson = ({ member, districtState }) => {
@@ -17,8 +17,10 @@ const Congressperson = ({ member, districtState }) => {
     chamber = 'senate'
   }
   return (
-    <NavLink to={`/${chamber}/${member.id}`}>
     <Card>
+      <NavLink to={`/${chamber}/${member.id}`}>
+        <Image src={`http://bioguide.congress.gov/bioguide/photo/${member.id.charAt(0)}/${member.id}.jpg`}/>
+      </NavLink>
       <Card.Content>
         <Card.Header>
           {member.first_name + middle + member.last_name} - {member.state} ({member.party})
@@ -32,7 +34,6 @@ const Congressperson = ({ member, districtState }) => {
         </Card.Description>
         </Card.Content>
       </Card>
-    </NavLink>
   )
 }
 
