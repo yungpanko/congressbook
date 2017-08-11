@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SenatorsList from '../components/SenatorsList'
-import config from '.././config'
+import config from '../config'
+import StateDropdown from '../components/StateDropdown'
 
 const myHeaders = {
   'X-API-Key': config.PP_KEY
@@ -48,6 +49,7 @@ class Senate extends Component {
   render() {
     return (
       <div className="mainContent">
+        <StateDropdown />
         <SenatorsList members={this.state.senate} districtState={this.state.districtState}/>
     </div>
     )
