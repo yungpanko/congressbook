@@ -4,9 +4,13 @@ import { Card } from 'semantic-ui-react'
 
 const SenatorsList = ({ members, districtState }) => {
   let displayList = ''
-  if (members) {
+  if (members && districtState) {
     displayList = members.map(member => (
       <Congressperson member={member} key={member.id} districtState={districtState}/>
+    ))
+  } else if (members) {
+    displayList = members.map(member => (
+      <Congressperson member={member} key={member.id} districtState={member.state}/>
     ))
   }
   return (
