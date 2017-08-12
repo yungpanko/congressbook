@@ -35,7 +35,6 @@ class StateDropdown extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <Dropdown placeholder='State' fluid multiple search selection options={stateOptions}
         onChange={this.handleChange}
