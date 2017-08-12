@@ -44,7 +44,6 @@ const stateOptions = [
   { text: 'TEXAS', key: 'TX', value: 'TX' },
   { text: 'UTAH', key: 'UT', value: 'UT' },
   { text: 'VERMONT', key: 'VT', value: 'VT' },
-  { text: 'VIRGIN ISLANDS', key: 'VI', value: 'VI' },
   { text: 'VIRGINIA', key: 'VA', value: 'VA' },
   { text: 'WASHINGTON', key: 'WA', value: 'WA' },
   { text: 'WEST VIRGINIA', key: 'WV', value: 'WV' },

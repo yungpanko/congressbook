@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, Image } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom'
 
 class Congressperson extends Component {
@@ -42,7 +42,7 @@ class Congressperson extends Component {
     return (
       <Card>
       <NavLink to={`/${chamber}/${member.id}`}>
-        <img className='ui fluid image' src={this.state.imageURL} onError={this.picError.bind(this)}/>
+        <img alt={member.id} className='ui fluid image' src={this.state.imageURL} onError={this.picError.bind(this)}/>
       </NavLink>
       <Card.Content>
         <Card.Header>
