@@ -4,7 +4,7 @@ import SenatorsList from '../components/SenatorsList'
 import AddressSearch from '../components/AddressSearch'
 // import LinkToDistrictMap from '../components/LinkToDistrictMap'
 // import GoogleMap from '../components/GoogleMap'
-import config from '.././config'
+import config from '../config'
 import { Container, Grid } from 'semantic-ui-react'
 
 const myHeaders = {
