@@ -9,6 +9,7 @@ import Bills from './containers/Bills.js'
 import Header from './containers/Header'
 import { Container } from 'semantic-ui-react'
 import CongresspersonShow from './containers/CongresspersonShow'
+import BillShow from './containers/BillShow'
 import {
   Route,
   Switch
@@ -31,6 +32,7 @@ class App extends Component {
             <Route path ="/house/:id" render={({match})=> (<CongresspersonShow member={match.params.id}/>) }/>
             <Route path ="/senate/:id" render={({match})=> (<CongresspersonShow member={match.params.id}/>) }/>
             <Route path ="/findmyreps/:state/:district" render={({match})=> (<FindMyReps history= {this.props.history} districtState={match.params.state} districtCode={match.params.district}/>) }/>
+            <Route path ="/bills/:id" render={({match})=> (<BillShow id={match.params.id}/>) }/>
           </Switch>
         </Container>
     );
