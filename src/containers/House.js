@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import RepsList from '../components/RepsList'
-import config from '.././config'
+import config from '../config'
 import StateDropdown from '../components/StateDropdown'
 
 const myHeaders = {
