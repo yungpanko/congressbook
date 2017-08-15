@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import AddressSearch from '../components/AddressSearch'
-import config from '.././config'
+import config from '../config'
 import { Container } from 'semantic-ui-react'
 
 
