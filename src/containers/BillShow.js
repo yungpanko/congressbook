@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import config from '../config'
 import { NavLink } from 'react-router-dom'
+import { Loader } from 'semantic-ui-react'
 
 const myHeaders = {
   'X-API-Key': config.PP_KEY
@@ -42,7 +43,7 @@ class BillShow extends Component {
     } else {
       chamber = 'house'
     }
-    let display
+    let display = (<div><br></br><Loader active inline='centered'/></div>)
     // debugger
     if (bill.number) {
       display = (
@@ -78,8 +79,6 @@ class BillShow extends Component {
           {bill.summary ? bill.summary : 'no summary'}
         </p>
       </div>)
-    } else {
-      display = (<div>Loading...</div>)
     }
     return display
   }

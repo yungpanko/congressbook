@@ -12,7 +12,7 @@ class Congressperson extends Component {
 
   picError = () => {
     this.setState({
-      imageURL: 'dummy-profile-pic.png'
+      imageURL: '/dummy-profile-pic.png'
     })
   }
 
