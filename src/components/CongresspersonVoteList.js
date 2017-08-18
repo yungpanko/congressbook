@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 
 const CongresspersonVoteList = ({ votes }) => {
   const displayVotes = votes.map(vote => (
-    <Item>
+    <Item key={vote.roll_call}>
       <Item.Content>
         <Item.Header>
           { vote.bill.bill_uri ?
@@ -28,7 +28,6 @@ const CongresspersonVoteList = ({ votes }) => {
       </Item.Content>
     </Item>
   ))
-
   return (
     <Item.Group>
       {displayVotes}

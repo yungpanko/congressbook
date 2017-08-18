@@ -28,7 +28,8 @@ class FindMyReps extends Component {
       districtState: '',
       districtCode: '',
       map: '',
-      new: 'yes'
+      new: 'yes',
+      warning: false
     })
   }
 
@@ -71,7 +72,9 @@ class FindMyReps extends Component {
 
   testForSplitDistrict = (response) => {
     if (typeof response.offices[3] === 'undefined') {
-      alert("This zip code is split across congressional districts. Please provide a full address")
+      this.setState({
+        warning: true
+      })
     }
     return response
   }
@@ -110,7 +113,8 @@ class FindMyReps extends Component {
     this.getCustomSenators(state)
     this.setState({
       districtState: state,
-      districtCode: district
+      districtCode: district,
+      warning: false
     })
   }
 
@@ -141,7 +145,7 @@ class FindMyReps extends Component {
           <Grid divided='vertically'>
             <Grid.Row columns={1}>
               <Grid.Column>
-                <AddressSearch handleSearch={this.handleSearch}/>
+                <AddressSearch handleSearch={this.handleSearch} warning={this.state.warning}/>
               </Grid.Column>
             </Grid.Row>
           {/* <Grid.Row columns={2}>

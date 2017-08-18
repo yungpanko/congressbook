@@ -8,9 +8,18 @@ import { Container } from 'semantic-ui-react'
 
 class FindMyRepsSearch extends Component {
 
+  constructor() {
+    super()
+    this.state = ({
+      warning: false
+    })
+  }
+
   testForSplitDistrict = (response) => {
     if (typeof response.offices[3] === 'undefined') {
-      alert("This zip code is split across congressional districts. Please provide a full address")
+      this.setState({
+        warning: true
+      })
     }
     return response
   }
@@ -30,7 +39,7 @@ class FindMyRepsSearch extends Component {
     return (
       <Container>
         <h1>Search Only</h1>
-        <AddressSearch handleSearch={this.handleSearch}/>
+        <AddressSearch handleSearch={this.handleSearch} warning={this.state.warning}/>
       </Container>
     )
   }
